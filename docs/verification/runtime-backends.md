@@ -3314,7 +3314,7 @@ comm=omp FM_OMP_HARNESS=omp HERDR_SESSION=fm-remote
 ```
 
 Two `bin/fm-send.sh fm-<id>` steers, one before and one after the relaunch, were moved to `handled/` by the agent and answered with correlated lines in the remote `state/parent-replies.status`; the second answer reported `bin/fm-harness.sh` resolving `omp` from the agent's own tool shell and the session lock held by the omp process.
-`tests/fm-remote-secondmate-omp.test.sh` is the portable regression for the three remote gates; repeat the commands above after an omp or Herdr upgrade to refresh this record.
+`tests/fm-remote-secondmate-omp.test.sh` is the portable regression for the remote gates and retirement; repeat the commands above after an omp or Herdr upgrade to refresh this record.
 
 ## Busy inbox escalation
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# tests/fm-remote-secondmate-omp.test.sh - omp is a verified remote secondmate
-# harness on every gate that decides remote placement:
+# tests/fm-remote-secondmate-omp.test.sh - an omp remote secondmate passes every
+# gate that decides remote placement and retires cleanly:
 #
 #   A) bin/fm-remote-secondmate-control.sh launch accepts omp and drives the
 #      ordinary host-local secondmate spawn onto the Herdr fm-remote session,
@@ -9,6 +9,8 @@
 #      pre-stop checkpoint, proving its harness gate passed.
 #   C) bin/fm-spawn.sh's parent-side remote secondmate gate accepts omp and
 #      proceeds to the remote transport hop.
+#   D) Host-local retirement succeeds even though the busy records omp arms live
+#      in the route state inside the home that retirement removes.
 #
 # The Herdr endpoint is the stateful fixture in tests/remote-herdr-fixture.sh
 # and omp is a fake that answers `models --json`, so no vendor tool is needed;
@@ -111,5 +113,15 @@ assert_grep 'readiness could not be confirmed; preserved route' "$TMP_ROOT/spawn
   "the omp remote spawn did not pass the harness gate to the transport hop"$'\n'"$(cat "$TMP_ROOT/spawn.err")"
 [ -s "$SSH_LOG" ] || fail "the omp remote spawn never reached the remote transport hop"
 pass "C the parent-side remote spawn gate accepts omp"
+
+# --- D) host-local retirement -------------------------------------------------
+
+# omp arms the busy contract, so its busy records live in the route state inside
+# the home that retirement removes.
+[ -f "$HOME_DIR/state/parent-route/$ID.busy-gen" ] || fail "the omp launch armed no busy generation to retire"
+ctl retire "$ID" > "$TMP_ROOT/retire.out" 2>&1
+expect_code 0 "$?" "host-local retirement of an omp mate failed"$'\n'"$(cat "$TMP_ROOT/retire.out")"
+assert_absent "$HOME_DIR" "retirement left the omp mate's home behind"
+pass "D host-local retirement removes an omp mate's home and succeeds"
 
 echo "ALL TESTS PASSED"
