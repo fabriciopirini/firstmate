@@ -1,0 +1,17 @@
+== R1: remote mate, target hc
+$ FM_HOME=<disposable> bin/fm-secondmate-move.sh rm1 --backend hc
+error: second mate rm1 is placed on remote host build-box, whose backend is its own; a local move is refused and nothing was stopped or moved
+exit=1
+state/ entries: rm1.meta 
+== R2: remote mate, target orca (unsupported target: refusal must still be the remote one, issued first)
+$ FM_HOME=<disposable> bin/fm-secondmate-move.sh rm1 --backend orca
+error: second mate rm1 is placed on remote host build-box, whose backend is its own; a local move is refused and nothing was stopped or moved
+exit=1
+state/ entries: rm1.meta 
+== R3: remote mate while another process holds its control lock
+$ FM_HOME=<disposable> bin/fm-secondmate-move.sh rm1 --backend hc
+error: second mate rm1 is placed on remote host build-box, whose backend is its own; a local move is refused and nothing was stopped or moved
+exit=1
+state/ entries: .control-rm1.lock rm1.meta 
+== host probes recorded by ssh/fm-on shims: none
+record byte-identical after all runs: yes

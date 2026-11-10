@@ -1,0 +1,73 @@
+{run-worktree}/.test-hc/full/parent
+{run-worktree}/.test-hc/full/mate
+lab core session fm-hclab-gate-32626-17372 ready (server pid 32851)
+Real hc version: hc 0.1.19; session=fm-hclab-gate-32626-17372
+fm-gate-refuse: gate agent lifecycle permitted only against lab home {run-worktree}/.test-hc/full/parent
+fm-config-inherit: warning: skipped backend for {run-worktree}/.test-hc/full/mate/config: destination does not allow inherited item (not gitignored or guard failed)
+fm-config-inherit: warning: skipped supervision-host-off for {run-worktree}/.test-hc/full/mate/config: destination does not allow inherited item (not gitignored or guard failed)
+spawned gatehc harness=codex kind=secondmate mode=secondmate yolo=off window=fm-hclab-gate-32626-17372:t1 worktree={run-worktree}/.test-hc/full/mate
+window=fm-hclab-gate-32626-17372:t1
+endpoint_task_id=gatehc
+worktree={run-worktree}/.test-hc/full/mate
+project={run-worktree}/.test-hc/full/mate
+harness=codex
+approval_mode=bypass
+kind=secondmate
+mode=secondmate
+yolo=off
+tasktmp=/tmp/fm-gatehc
+model=default
+effort=default
+spawn_gen=s1794326152.33208.18834
+backend=hc
+hc_session=fm-hclab-gate-32626-17372
+hc_terminal=t1
+home={run-worktree}/.test-hc/full/mate
+projects=
+launch_agent_state=alive
+launch_probe=alive state=alive reason=
+{"address":"t1","argv":["/bin/zsh","-l"],"cols":200,"created_ms":1794326152807,"cwd":"{run-worktree}/.test-hc/full/mate","die_with_parent":false,"exit_code":null,"finished_ms":null,"foreground":{"argv":["codex","--dangerously-bypass-approvals-and-sandbox","⁣FIRSTMATE_OP: v1 launch-brief: Synthetic second-mate lifecycle fixture; no project work."],"cwd":"{run-worktree}/.test-hc/full/mate","name":"codex","pid":35765},"identity":"ghostty","keep":false,"labels":{"firstmate.home":"firstmate-1359dbef","firstmate.task":"fm-gatehc","herdr.space":"fm-2ndmate-gatehc-007aff90","herdr.tab":"firstmate-1359dbef-fm-gatehc"},"name":null,"notify":false,"parent":null,"pid":33730,"reason":null,"reported":false,"rm":false,"rows":120,"screen":"exact","signal":null,"state":"live","status":null,"status_ms":null,"template":null,"title":"","turn":0}
+Alive probe preserved the record and existing terminal.
+absent_socket agent=unreadable
+absent_socket endpoint=unreadable
+absent_socket busy=unknown
+error: hc terminal fm-hclab-gate-32626-17372:t1 could not be read, so it was not closed
+absent_socket probe=skipped state=unreadable reason=endpoint probe unreadable (backend=hc)
+Absent socket started no core, recorded no recovery attempt, and left the original agent alive.
+{"address":"t1","argv":["/bin/zsh","-l"],"cols":200,"created_ms":1794326152807,"cwd":"{run-worktree}/.test-hc/full/mate","die_with_parent":false,"exit_code":null,"finished_ms":null,"foreground":{"argv":["codex","--dangerously-bypass-approvals-and-sandbox","⁣FIRSTMATE_OP: v1 launch-brief: Synthetic second-mate lifecycle fixture; no project work."],"cwd":"{run-worktree}/.test-hc/full/mate","name":"codex","pid":35765},"identity":"ghostty","keep":false,"labels":{"firstmate.home":"firstmate-1359dbef","firstmate.task":"fm-gatehc","herdr.space":"fm-2ndmate-gatehc-007aff90","herdr.tab":"firstmate-1359dbef-fm-gatehc"},"name":null,"notify":false,"parent":null,"pid":33730,"reason":null,"reported":false,"rm":false,"rows":120,"screen":"exact","signal":null,"state":"live","status":null,"status_ms":null,"template":null,"title":"","turn":0}
+terminal=fm-hclab-gate-32626-17372:t1 state=dead
+recovery probe=relaunchable state=dead close=1
+fm-gate-refuse: gate agent lifecycle permitted only against lab home {run-worktree}/.test-hc/full/parent
+fm-config-inherit: warning: skipped backend for {run-worktree}/.test-hc/full/mate/config: destination does not allow inherited item (not gitignored or guard failed)
+fm-config-inherit: warning: skipped supervision-host-off for {run-worktree}/.test-hc/full/mate/config: destination does not allow inherited item (not gitignored or guard failed)
+spawned gatehc harness=codex kind=secondmate mode=secondmate yolo=off window=fm-hclab-gate-32626-17372:t2 worktree={run-worktree}/.test-hc/full/mate
+old_terminal=fm-hclab-gate-32626-17372:t1 removed_exit=3 replacement=fm-hclab-gate-32626-17372:t2
+terminal=fm-hclab-gate-32626-17372:t2 state=alive
+{"address":"t2","argv":["/bin/zsh","-l"],"cols":200,"created_ms":1794326158558,"cwd":"{run-worktree}/.test-hc/full/mate","die_with_parent":false,"exit_code":null,"finished_ms":null,"foreground":{"argv":["codex","--dangerously-bypass-approvals-and-sandbox","⁣FIRSTMATE_OP: v1 launch-brief: Synthetic second-mate lifecycle fixture; no project work."],"cwd":"{run-worktree}/.test-hc/full/mate","name":"codex","pid":39413},"identity":"ghostty","keep":false,"labels":{"firstmate.home":"firstmate-1359dbef","firstmate.task":"fm-gatehc","herdr.space":"fm-2ndmate-gatehc-007aff90","herdr.tab":"firstmate-1359dbef-fm-gatehc"},"name":null,"notify":false,"parent":null,"pid":37557,"reason":null,"reported":false,"rm":false,"rows":120,"screen":"exact","signal":null,"state":"live","status":null,"status_ms":null,"template":null,"title":"","turn":0}
+Dead-agent recovery stayed on hc despite config/backend=t3code.
+{"address":"t2","argv":["/bin/zsh","-l"],"cols":200,"created_ms":1794326158558,"cwd":"{run-worktree}/.test-hc/full/mate","die_with_parent":false,"exit_code":1,"finished_ms":1794326162796,"identity":"ghostty","keep":false,"labels":{"firstmate.home":"firstmate-1359dbef","firstmate.task":"fm-gatehc","herdr.space":"fm-2ndmate-gatehc-007aff90","herdr.tab":"firstmate-1359dbef-fm-gatehc"},"name":null,"notify":false,"parent":null,"pid":37557,"reason":"killed","reported":false,"rm":false,"rows":120,"screen":"exact","signal":null,"state":"finished","status":null,"status_ms":null,"template":null,"title":"","turn":0}
+terminal=fm-hclab-gate-32626-17372:t2 state=missing
+true
+recovery probe=relaunchable state=missing close=1
+fm-gate-refuse: gate agent lifecycle permitted only against lab home {run-worktree}/.test-hc/full/parent
+fm-config-inherit: warning: skipped backend for {run-worktree}/.test-hc/full/mate/config: destination does not allow inherited item (not gitignored or guard failed)
+fm-config-inherit: warning: skipped supervision-host-off for {run-worktree}/.test-hc/full/mate/config: destination does not allow inherited item (not gitignored or guard failed)
+spawned gatehc harness=codex kind=secondmate mode=secondmate yolo=off window=fm-hclab-gate-32626-17372:t3 worktree={run-worktree}/.test-hc/full/mate
+old_terminal=fm-hclab-gate-32626-17372:t2 removed_exit=3 replacement=fm-hclab-gate-32626-17372:t3
+terminal=fm-hclab-gate-32626-17372:t3 state=alive
+{"address":"t3","argv":["/bin/zsh","-l"],"cols":200,"created_ms":1794326164045,"cwd":"{run-worktree}/.test-hc/full/mate","die_with_parent":false,"exit_code":null,"finished_ms":null,"foreground":{"argv":["codex","--dangerously-bypass-approvals-and-sandbox","⁣FIRSTMATE_OP: v1 launch-brief: Synthetic second-mate lifecycle fixture; no project work."],"cwd":"{run-worktree}/.test-hc/full/mate","name":"codex","pid":45332},"identity":"ghostty","keep":false,"labels":{"firstmate.home":"firstmate-1359dbef","firstmate.task":"fm-gatehc","herdr.space":"fm-2ndmate-gatehc-007aff90","herdr.tab":"firstmate-1359dbef-fm-gatehc"},"name":null,"notify":false,"parent":null,"pid":41275,"reason":null,"reported":false,"rm":false,"rows":120,"screen":"exact","signal":null,"state":"live","status":null,"status_ms":null,"template":null,"title":"","turn":0}
+1794326157	attempt
+1794326162	relaunched
+1794326163	attempt
+1794326168	relaunched
+{run-worktree}/.test-hc/full/move-mate
+moved gatemove from=tmux to=hc
+spawned gatemove harness=codex kind=secondmate mode=secondmate yolo=off window=fm-hclab-gate-32626-17372:t4 worktree={run-worktree}/.test-hc/full/move-mate
+moved_agent_state=alive
+{"address":"t4","argv":["/bin/zsh","-l"],"cols":200,"created_ms":1794326169945,"cwd":"{run-worktree}/.test-hc/full/move-mate","die_with_parent":false,"exit_code":null,"finished_ms":null,"foreground":{"argv":["codex","--dangerously-bypass-approvals-and-sandbox","⁣FIRSTMATE_OP: v1 launch-brief: Synthetic lifecycle fixture."],"cwd":"{run-worktree}/.test-hc/full/move-mate","name":"codex","pid":50296},"identity":"ghostty","keep":false,"labels":{"firstmate.home":"firstmate-1359dbef","firstmate.task":"fm-gatemove","herdr.space":"fm-2ndmate-gatemove-a37f1dd2","herdr.tab":"firstmate-1359dbef-fm-gatemove"},"name":null,"notify":false,"parent":null,"pid":48220,"reason":null,"reported":false,"rm":false,"rows":120,"screen":"exact","signal":null,"state":"live","status":null,"status_ms":null,"template":null,"title":"","turn":0}
+error: backend=paseo does not support --secondmate spawns yet (secondmate-capable: tmux herdr zellij rex t3code hc)
+Unsupported destination left the live agent and persistent record unchanged.
+error: second mate remote is placed on remote host fm-test.invalid, whose backend is its own; a local move is refused and nothing was stopped or moved
+Remote move refused before target validation or contended locks; records unchanged.
+{"hidden_finished":0,"terminals":[{"address":"t3","agent":"zsh","cwd":"{run-worktree}/.test-hc/full/mate","state":"live","turn":0},{"address":"t4","agent":"zsh","cwd":"{run-worktree}/.test-hc/full/move-mate","state":"live","turn":0}]}
+LIVE_SCENARIOS_COMPLETE

@@ -1,0 +1,4 @@
+{run-worktree}/.test-hc/dead-socket/home
+Closed Unix socket still exists; real adapter agent_state=unreadable
+Closed Unix socket endpoint_state=unreadable
+After passive reads, socket still refuses connections: no core was auto-started.

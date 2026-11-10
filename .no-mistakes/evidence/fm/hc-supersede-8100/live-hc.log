@@ -1,0 +1,28 @@
+{run-worktree}/.test-hc/live/parent
+{run-worktree}/.test-hc/live/mate
+lab core session fm-hclab-gate-34336-17949 ready (server pid 34417)
+Real hc version: hc 0.1.19; session=fm-hclab-gate-34336-17949
+fm-gate-refuse: gate agent lifecycle permitted only against lab home {run-worktree}/.test-hc/live/parent
+fm-config-inherit: warning: skipped backend for {run-worktree}/.test-hc/live/mate/config: destination does not allow inherited item (not gitignored or guard failed)
+fm-config-inherit: warning: skipped supervision-host-off for {run-worktree}/.test-hc/live/mate/config: destination does not allow inherited item (not gitignored or guard failed)
+spawned gatehc harness=codex kind=secondmate mode=secondmate yolo=off window=fm-hclab-gate-34336-17949:t1 worktree={run-worktree}/.test-hc/live/mate
+window=fm-hclab-gate-34336-17949:t1
+endpoint_task_id=gatehc
+worktree={run-worktree}/.test-hc/live/mate
+project={run-worktree}/.test-hc/live/mate
+harness=codex
+approval_mode=bypass
+kind=secondmate
+mode=secondmate
+yolo=off
+tasktmp=/tmp/fm-gatehc
+model=default
+effort=default
+spawn_gen=s1794326030.34462.29668
+backend=hc
+hc_session=fm-hclab-gate-34336-17949
+hc_terminal=t1
+home={run-worktree}/.test-hc/live/mate
+projects=
+launch_agent_state=alive
+launch_probe=alive state=alive reason=

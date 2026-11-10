@@ -1,0 +1,57 @@
+lab core session fm-hclab-nmlive-89677-10153 ready (server pid 89859)
+== launch hc second mate nmA89221 (real fm-spawn, real hc hc 0.1.19)
+spawned nmA89221 harness=opencode kind=secondmate mode=secondmate yolo=off window=fm-hclab-nmlive-89677-10153:t1 worktree=/private/var/folders/qr/fn98whcd7xs3ltx5z7vcgvzw0000gn/T/fm-nm-live.sYQI7q/mate
+recording env: agent_state=alive  resolved socket=/tmp/fm-hc-lab-501/fm-hclab-nmlive-89677-10153.sock
+
+== S1: same target read from a foreign env (XDG_STATE_HOME=/tmp/fmnm.oHTy, no FM_HC_SOCKET)
+foreign resolved socket: /tmp/fmnm.oHTy/herdr-core/fm-hclab-nmlive-89677-10153/fm-hclab-nmlive-89677-10153.sock
+foreign agent_state=unreadable endpoint_state=bash: line 1: fm_backend_endpoint_state: command not found rc=127 
+foreign socket exists? no
+ok - S1 absent socket in a foreign env reads unreadable and starts no core
+
+== S1b: stale socket file at the foreign path (bound, listener gone)
+foreign agent_state with stale socket=unreadable
+ok - S1b stale socket file reads unreadable
+
+== S1c: liveness probe from the foreign env on a DEAD mate must not be relaunchable
+recording env now reads: dead
+foreign probe: status=skipped state=unreadable kill=0 reason=endpoint probe unreadable (backend=hc)
+lab core terminal count: 2
+ok - S1c foreign-env liveness probe leaves the mate alone (unreadable, no respawn, no core)
+
+== S1d: base commit 913bb7a7 from the same foreign env (regression reproduction)
+base foreign agent_state=missing ; core socket now exists at foreign path? yes
+after stopping the stray core: foreign socket live? no
+ok - S1d base commit reads 'missing' from the foreign env (pre-fix behavior recorded)
+
+== S2: move a t3code-recorded mate (no endpoint, T3 env in home) onto hc
+-- record before:
+kind=secondmate
+backend=t3code
+-- settings.local.json before:
+{"permissions":{"allow":["Bash(ls)"]},"env":{"KEEP_ME":"1","FM_SUPERVISOR_BACKEND":"t3code","FM_SUPERVISOR_TARGET":"thread-archived-123","FM_T3CODE_ENV_KEYS":"FM_SUPERVISOR_BACKEND,FM_SUPERVISOR_TARGET"}}
+-- t3code-token link before: /private/var/folders/qr/fn98whcd7xs3ltx5z7vcgvzw0000gn/T/fm-nm-live.sYQI7q/mate2/config/t3code-token -> /private/var/folders/qr/fn98whcd7xs3ltx5z7vcgvzw0000gn/T/fm-nm-live.sYQI7q/primary-token
+-- fm-secondmate-move.sh nmB89221 --backend hc  (exit 0)
+moved nmB89221 from=t3code to=hc
+spawned nmB89221 harness=opencode kind=secondmate mode=secondmate yolo=off window=fm-hclab-nmlive-89677-10153:t3 worktree=/private/var/folders/qr/fn98whcd7xs3ltx5z7vcgvzw0000gn/T/fm-nm-live.sYQI7q/mate2
+-- record after:
+window=fm-hclab-nmlive-89677-10153:t3
+kind=secondmate
+backend=hc
+-- settings.local.json after:
+{"permissions":{"allow":["Bash(ls)"]},"env":{"KEEP_ME":"1"}}
+-- t3code-token link after: absent
+moved mate agent_state on hc: alive
+{"state":"live","labels":{"space":"fm-2ndmate-nmB89221-8bc9d342","task":"fm-nmB89221"}}
+1794325705	attempt
+1794325710	relaunched
+ok - S2 move off t3code removes the T3 env from the home and lands the mate alive on hc
+LIVE_DRIVER_COMPLETE
+fm-hc-lab: FLEET-STATE TRIPWIRE FAILED: real herdr-core state changed during lab work
+fm-hc-lab: before: 18 files; after: 18 files
+19c19
+< ~/.local/state/herdr-core/default/terminals.json 167226127 1794325692 72807
+---
+> ~/.local/state/herdr-core/default/terminals.json 167233152 1794325710 72807
+note: lab teardown refused (see tripwire output above)
+exit=0

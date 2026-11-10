@@ -1,0 +1,18 @@
+FM_TEST_BEGIN 2026-11-10T15:45:32Z tests/fm-backend-hc-secondmate-smoke.test.sh family=hc expected_gate_skip=optional-binary
+lab core session fm-hclab-smate-29374-19267 ready (server pid 29530)
+ok - hc secondmate smoke: a real --secondmate launch lands in the mate's own space with this home's identity and an alive agent
+ok - hc secondmate smoke: a dead mate is closed, removed, and respawned in the same space at a new address
+ok - hc secondmate smoke: a finished terminal is removed as a husk before the mate is respawned
+ok - hc secondmate smoke: an alive mate is left exactly as it is
+FM_TEST_COMPLETE
+fm-hc-lab: FLEET-STATE TRIPWIRE FAILED: real herdr-core state changed during lab work
+fm-hc-lab: before: 18 files; after: 18 files
+19c19
+< ~/.local/state/herdr-core/default/terminals.json 167206898 1794325532 74085
+---
+> ~/.local/state/herdr-core/default/terminals.json 167209421 1794325552 74085
+FM_TEST_END 2026-11-10T15:45:53Z tests/fm-backend-hc-secondmate-smoke.test.sh exit=1 duration_ms=20943 gate_skip=false
+FM_TEST_SUMMARY total=1 failed=1 skipped_gate=0 duration_ms=21007
+FM_TEST_SUMMARY_FAMILY family=hc count=1 duration_ms=20943 failed=1
+FM_TEST_SLOWEST rank=1 script=tests/fm-backend-hc-secondmate-smoke.test.sh duration_ms=20943
+exit=1
