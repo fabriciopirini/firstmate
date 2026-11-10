@@ -1,0 +1,47 @@
+lab core session fm-hclab-s2dead-55702-17997 ready (server pid 55933)
+LAB_SESSION=fm-hclab-s2dead-55702-17997
+LAB_SOCKET=/tmp/fm-hc-lab-501/fm-hclab-s2dead-55702-17997.sock
+LAB_DIR=/var/folders/qr/fn98whcd7xs3ltx5z7vcgvzw0000gn/T//fm-hc-lab-501/fm-hclab-s2dead-55702-17997
+--- real launch: bin/fm-spawn.sh s2hc54943 <mate> --secondmate --backend hc
+spawned s2hc54943 harness=opencode kind=secondmate mode=secondmate yolo=off window=fm-hclab-s2dead-55702-17997:t1 worktree=/private/var/folders/qr/fn98whcd7xs3ltx5z7vcgvzw0000gn/T/fm-s2w.p41lZY/mate
+record window=fm-hclab-s2dead-55702-17997:t1 backend=hc
+recording env: agent_state=alive
+recording env after agent ended: agent_state=dead
+--- env B probe with THIS change
+[head] resolved socket: /tmp/s2b.gMSC/run/herdr-core/fm-hclab-s2dead-55702-17997.sock
+[head] fm_backend_agent_state hc fm-hclab-s2dead-55702-17997:t1 => unreadable
+[head] fm_backend_hc_endpoint_state => unreadable
+[head] liveness probe(poll): status=skipped state=unreadable kill=0 reason=endpoint probe unreadable (backend=hc)
+[head] files under env B after the probe:
+envB/state
+envB/run
+[head] processes holding files under env B: 
+--- env B probe with BASE commit 913bb7a7 (pre-fix adapter), same record
+[base] resolved socket: /tmp/s2b.gMSC/run/herdr-core/fm-hclab-s2dead-55702-17997.sock
+[base] fm_backend_agent_state hc fm-hclab-s2dead-55702-17997:t1 => missing
+[base] fm_backend_hc_endpoint_state => absent
+[base] liveness probe(poll): status=relaunchable state=missing kill=0 reason=
+[base] files under env B after the probe:
+envB/state
+envB/state/herdr-core
+envB/state/herdr-core/fm-hclab-s2dead-55702-17997
+envB/state/herdr-core/fm-hclab-s2dead-55702-17997/core.log
+envB/state/herdr-core/fm-hclab-s2dead-55702-17997/terminals.json
+envB/state/herdr-core/fm-hclab-s2dead-55702-17997/core.lock
+envB/state/herdr-core/fm-hclab-s2dead-55702-17997/screens
+envB/state/herdr-core/fm-hclab-s2dead-55702-17997/core.json
+envB/run
+envB/run/herdr-core
+envB/run/herdr-core/fm-hclab-s2dead-55702-17997.sock
+[base] processes holding files under env B: 66585 
+[cleanup] {"stopped":true}
+processes still holding env B after cleanup: 0
+recording env still reads: agent_state=dead
+fm-hc-lab: FLEET-STATE TRIPWIRE FAILED: real herdr-core state changed during lab work
+fm-hc-lab: before: 18 files; after: 18 files
+19c19
+< ~/.local/state/herdr-core/default/terminals.json 166917526 1794322461 125649
+---
+> ~/.local/state/herdr-core/default/terminals.json 166952280 1794322477 125482
+teardown rc=1
+SES=fm-hclab-s2dead-55702-17997

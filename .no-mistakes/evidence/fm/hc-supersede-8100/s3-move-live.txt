@@ -1,0 +1,72 @@
+lab core session fm-hclab-s3move-69694-8027 ready (server pid 69857)
+LAB_SESSION=fm-hclab-s3move-69694-8027
+
+=== A. move a tmux-recorded mate with no endpoint onto the real hc core
+--- record before:
+kind=secondmate
+harness=opencode
+home=/private/var/folders/qr/fn98whcd7xs3ltx5z7vcgvzw0000gn/T/fm-s3w.ontMwA/s3a
+worktree=/private/var/folders/qr/fn98whcd7xs3ltx5z7vcgvzw0000gn/T/fm-s3w.ontMwA/s3a
+project=/private/var/folders/qr/fn98whcd7xs3ltx5z7vcgvzw0000gn/T/fm-s3w.ontMwA/s3a
+endpoint_task_id=s3a
+mode=secondmate
+yolo=off
+projects=
+$ bin/fm-secondmate-move.sh s3a --backend hc
+moved s3a from=tmux to=hc
+spawned s3a harness=opencode kind=secondmate mode=secondmate yolo=off window=fm-hclab-s3move-69694-8027:t1 worktree=/private/var/folders/qr/fn98whcd7xs3ltx5z7vcgvzw0000gn/T/fm-s3w.ontMwA/s3a
+exit=0
+--- record after:
+window=fm-hclab-s3move-69694-8027:t1
+endpoint_task_id=s3a
+worktree=/private/var/folders/qr/fn98whcd7xs3ltx5z7vcgvzw0000gn/T/fm-s3w.ontMwA/s3a
+project=/private/var/folders/qr/fn98whcd7xs3ltx5z7vcgvzw0000gn/T/fm-s3w.ontMwA/s3a
+harness=opencode
+kind=secondmate
+mode=secondmate
+yolo=off
+tasktmp=/tmp/fm-s3a
+model=default
+effort=default
+busy_gen=g1794322571.73650.16224
+spawn_gen=s1794322571.71623.16757
+backend=hc
+hc_session=fm-hclab-s3move-69694-8027
+hc_terminal=t1
+home=/private/var/folders/qr/fn98whcd7xs3ltx5z7vcgvzw0000gn/T/fm-s3w.ontMwA/s3a
+projects=
+agent_state on hc: alive
+terminal labels: {"space":"fm-2ndmate-s3a-5ef40b7f","tab":"firstmate-e3371916-fm-s3a","task":"fm-s3a","home":"firstmate-e3371916"}
+expected space: fm-2ndmate-s3a-5ef40b7f  expected home label: firstmate-e3371916
+relaunch ledger: 1794322568	attempt 1794322577	relaunched 
+locks left behind: []
+
+=== A2. adversarial: move it to hc again (same backend) -> early refusal, agent untouched
+error: second mate s3a is already recorded on backend=hc; to restart it in place use bin/fm-control.sh s3a relaunch
+exit=1
+record unchanged: yes
+agent_state on hc: alive
+
+=== B. adversarial: remote mate refused before any lock or host probe
+error: second mate s3b is placed on remote host lab-host, whose backend is its own; a local move is refused and nothing was stopped or moved
+exit=1
+record unchanged: yes
+ssh invocations: 0
+s3b lock/ledger files ever seen during the move: []
+hc terminals on the lab core (no launch for s3b): 
+
+=== C. adversarial: tmux-recorded mate whose endpoint cannot be read (no tmux on this host) -> refused
+error: second mate s3c's endpoint cannot be classified (endpoint probe unreadable (backend=tmux)); nothing was stopped or moved
+exit=1
+record unchanged: yes
+relaunch attempt recorded: no
+locks left behind: []
+closed s3a terminal: rc=0
+fm-hc-lab: FLEET-STATE TRIPWIRE FAILED: real herdr-core state changed during lab work
+fm-hc-lab: before: 18 files; after: 18 files
+19c19
+< ~/.local/state/herdr-core/default/terminals.json 166955803 1794322567 125649
+---
+> ~/.local/state/herdr-core/default/terminals.json 166956748 1794322589 125649
+teardown rc=1
+SES=fm-hclab-s3move-69694-8027
